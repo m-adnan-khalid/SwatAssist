@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zendesk Support</title>
+
+</head>
+
+<body>
+<div class="chatbot-container">
+    <div class="chatbot-header">
+        <h1>Zendesk Support</h1>
+    </div>
+    <div class="chatbot-input">
+        <form id="chatbot-form" action="/zendesk" method="post">
+            <button type="submit" id="chatbot-input-button">POST Answer</button>
+        </form>
+        <h1>{{ result }}</h1>
+    </div>
+</div>
+</body>
+</html>

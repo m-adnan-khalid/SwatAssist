@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swat Assist</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .chatbot-container {
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .chatbot-header {
+            background-color: #0e6ba8;
+            color: #fff;
+            padding: 10px 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .chatbot-header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .chatbot-messages {
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+
+        .chatbot-message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+        }
+
+        .chatbot-message.question {
+            background: #f8f5f5;
+            margin-left: 200px;
+        }
+
+        .chatbot-message p {
+            margin: 0;
+        }
+
+        .chatbot-input {
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #query {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            width: 380px;
+        }
+
+        #chatbot-input-button {
+            margin-left: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0e6ba8;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #chatbot-input-button:hover {
+            background-color: #094b75;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+<div class="chatbot-container">
+    <div class="chatbot-header">
+        <h1>Vroozi Support Assist</h1>
+    </div>
+
+    <div class="chatbot-messages">
+        <div id="chatbot-messages-container">
+            {% for key, value in messages.items() %}
+            <div class="chatbot-message question">
+                <p>{{ key }}</p>
+            </div>
+            <div class="chatbot-message">
+                <p> {{ value }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="chatbot-input">
+        <form id="chatbot-form" action="/" method="post">
+            <input type="text" id="query" name="query" required placeholder="Type your message..." autocomplete="off">
+            <button type="submit" id="chatbot-input-button">Send</button>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        scrollToBottom();
+    });
+
+    function scrollToBottom() {
+        document.querySelector('.chatbot-messages').scrollTop = 500000;
+    }
+</script>
+</body>
+</html>
